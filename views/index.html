@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/index.css">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <h2>Hi there, {{name}}
+    %if len(name) > 10:
+      <p>You have a long name!</p>
+    %else:
+      <p>That is a nice name.</p>
+    %end
+
+  </body>
+</html>
