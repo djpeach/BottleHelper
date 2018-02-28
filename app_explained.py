@@ -1,7 +1,7 @@
 """
 I am putting together a file of example Bottle Code to refer to during the project.
 I could not find any great resources online, so I am going to make one that helps me,
-and hopefully it helps others too.  I have uploaded this to github at XXX, 
+and hopefully it helps others too.  I have uploaded this to github at https://github.com/djpeach/BottleHelper/edit/master/app_explained.py , 
 feel free to help update this and make it as helpful as possible.
 """
 """
@@ -105,8 +105,7 @@ def error404(error):
 	# Normally this would be much prettier, probably using a template.
 	return "You have exerienced a 404 error"
 
-# Using json data??
-# Does anyone know what this is or how it works??? Help me out if you do.
+# Using json data
 @route('/jsondata')
 def jsondata():
 	return {"name": "Jason", "List": [1,2,3,4,5]}
