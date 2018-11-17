@@ -1,24 +1,40 @@
 """
-I am putting together a file of example Bottle Code to refer to during the project.
+This is a file I put together of example Bottle.py Code to refer to during the project.
 I could not find any great resources online, so I am going to make one that helps me,
-and hopefully it helps others too.  I have uploaded this to github at https://github.com/djpeach/BottleHelper/edit/master/app_explained.py , 
+and hopefully it helps anyone else too.  I have uploaded this to github at https://github.com/djpeach/BottleHelper/edit/master/app_explained.py , 
 feel free to help update this and make it as helpful as possible.
 """
 """
->>>The first step is to download the Bottle file.
+>>> The first step is to download the Bottle file.
 	You can either download this to your computer using pip, or download an actual file 
 	to keep in your working directory. This allows you to import it into your project as you need to.
->>>The second step is to create two folders in the same directory as the Bottle file
-	NAMES ARE IMPORTANT. Name one 'views' (minus the single quotes), and the other 'static'.
->>>The third step is to make your app.  Create your file, app.py, and code the app.
+	To keep it super simple, go to this link: [bottle.py](https://raw.githubusercontent.com/bottlepy/bottle/master/bottle.py),
+	select all the code, copy it, and paste it in a file. Save that file as `bottle.py`, and put it 
+	in the same folder as your app.py
+>>> The second step is to create two folders in the same directory as the Bottle file
+	NAMES ARE IMPORTANT. Name one `views`, and the other `static`. The views folder is where you will
+	store your web pages (your html files). The static folder is where you will store static files 
+	(css, js, images, etc)
+>>> The third step is to make your app.  Create your file, app.py, and code the app.
 	Hopefully this document can help with that.
->>>The last step is to pull up your terminal and navigate to your directory with the app.py and bottle.py.
+>>> The last step is to pull up your terminal and navigate to your directory with the app.py and bottle.py.
 	run `python app.py` or `python3 app.py`, whichever you have set up.  Then open a browser and go to 
-	localhost:8080/, or what ever host and port you set up up in the run command at the bottom.
+	localhost:8080/, or what ever host and port you set up up in the run command at the bottom. If you have IDLE, you can
+	also open and run it there.
 """
 
-# This imports all the necessary keywords from the bottle.py file
+# This imports all the necessary methods from the bottle.py file
 from bottle import route, run, template, request, post, get, error
+
+"""
+Routes:
+---------------
+A route is how you read a request from your browser. When the user uses the browser url bar to go to www.mysite.com/form,
+their browser sends a request to your server (app.py). That will be a GET request on the '/form' route. A GET request is 
+just a semantic type of request that typically means the user wants to GET some content. (hence the name). On the other hand,
+when a user submits a form that has a method="POST" and action="/form", you would get a POST request on the '/form' route.
+This typically means the user wants to POST (aka create) data on your server.
+"""
 
 # '@route' lets your program read and make decisions based on the url bar in the browser.
 @route('/')
@@ -33,6 +49,7 @@ def index():
 # The wildcard is what is in the <> brackets
 @route('/hello/<name>')
 # We take that wildcard, here it is 'name', and pass it into our function
+# For www.website.com/daniel, name == daniel, and for www.website.com/jacob, name == jacob, and so on
 def index(name):
 	# Now we return some html in response, but instead of typing it here, we have a seperate file
 	# containing our html code, its cleaner and easier this way.
