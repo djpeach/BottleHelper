@@ -82,6 +82,15 @@ def api():
     }
 
 
+# Using json data (usefule for RESTful API's)
+@route('/api')
+def api():
+    return {
+        "name": "Jason",
+        "List": [1, 2, 3, 4, 5]
+    }
+
+
 # Run the server (serve on your local host, on port 8080, set debug to true during development, and reloader to True to
 # update as you make changes)
 run(host='localhost', port=8080, debug=True, reloader=True)
